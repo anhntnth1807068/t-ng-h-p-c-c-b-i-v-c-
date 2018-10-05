@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 void noiHoVaTen(char ho[], char ten[]) {
     printf("Do dai cua ho la: %d\n", strlen(ho));
@@ -10,21 +11,23 @@ void noiHoVaTen(char ho[], char ten[]) {
     printf("Do dai cua ca ho va ten la %d\n", tong);
     tong++;
     char hovaten[tong];
-    strcat(hovaten, ho);
+    strcpy(hovaten, ho);
     strcat(hovaten, " ");
     strcat(hovaten, ten);
     printf("%s", hovaten);
 }
 
 int main() {
-    char ho[50], ten[50];
+    char ho[10], ten[10];
     printf("Vui long nhap ho cua ban: ");
-    gets(ho);
-    // kiểm tra độ dài họ.
+    fgets(ho, 10, stdin); // gets
+    puts(ho);
+    if (!strchr(ho, '\n')) {
+        while (fgetc(stdin) != '\n');
+    }
     printf("Vui long nhap ten cua ban: ");
-    gets(ten);
-    // kiểm tra độ dài tên.
-    printf("Ho va ten cua ban la: ");
+    fgets(ten, 10, stdin);
+    puts(ten);
     noiHoVaTen(ho, ten);
     return 0;
 }
