@@ -10,19 +10,19 @@ int truhaiso(int a, int b) {
 }
 
 int main() {
-    int *ap;
-    *ap = 1;
-    ap++;
-    *ap = 2;
-    ap++;
-    *ap = 3;
-    for (int i = 0; i < 3; ++i) {
-        printf("%d\n", *ap);
-        ap--;
+    int *pointToArray = (int *) malloc(3 * sizeof(int));
+    if (pointToArray == NULL) {
+        printf("Not enough memory.");
+        return 0;
     }
-    ap++;
-    printf("%d\n", *ap);
-    ap++;
-    printf("%d\n", *ap);
+    *pointToArray = 10;
+    pointToArray++;
+    *pointToArray = 20;
+    pointToArray++;
+    *pointToArray = 30;
+    for (int i = 0; i < 3; ++i) {
+        printf("%d\n", *pointToArray);
+        pointToArray--;
+    }
     return 0;
 }
