@@ -3,28 +3,7 @@
 #include <string.h>
 
 int main() {
-    // ghi file.
-    FILE *fp = fopen("hello_c.txt", "w+");
-    char choice;
-    char userInput[255];
-    printf("Enter something to save file:\n"); // Yêu cầu nhập.
-    while (1 == 1) {
-        fgets(userInput, 255, stdin);
-        //"exit"
-        if (strcmp(userInput, "exit\n") == 0) {
-            break;
-        }
-        fprintf(fp, userInput);
-    }
-    fclose(fp);
+    printf("%-10s%-20s%-10s%-20s%-10s%-20s", "",  "Mã sinh viên", "|", "Tên sinh viên", "|", "Điện thoại");
 
-    // đọc file.
-    printf("--------Read file data------\n");
-    fp = fopen("hello_c.txt", "r");
-    int bufferSize = 255;
-    char buffer[bufferSize];
-    while (fgets(buffer, bufferSize, fp) != NULL) {
-        printf("%s", buffer);
-    }
     return 0;
 }
