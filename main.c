@@ -5,21 +5,41 @@ int conghaiso(int a, int b) {
 }
 
 int main() {
-    int a = 10;
-    int *controA; // khai báo biến con trỏ kiểu int - bắt đầu bằng dấu *
-    controA = &a; // trỏ con trỏ controA đến vị trí bộ nhớ của biến a;
-    printf("Giá trị của a là %d\n", a);// in ra giá trị của a.
-    printf("Giá trị của a là %d\n", &a);// in ra địa chỉ bộ nhớ của a.
-    printf("Giá trị địa chỉ bộ nhớ con trỏ trỏ tới %d\n",
-           *controA);// in ra giá trị mà địa chỉ con trỏ đang trỏ tới chứa.
-    printf("Địa chỉ bộ nhớ mà controA trỏ tới %d\n", controA);
-    *controA = 20; // Thay đổi giá trị mà controA trỏ tới.
-    printf("Giá trị của a là %d\n", a);// in ra giá trị của a.
-    int b = 30; // tạo biến b có giá trị = 30;
-    controA = &b;
-    printf("Giá trị địa chỉ bộ nhớ con trỏ trỏ tới %d\n",
-           *controA);// in ra giá trị mà địa chỉ con trỏ đang trỏ tới chứa.
-    *controA = 50;
-    printf("Giá trị của b là %d", b); // in ra gía trị của b.
+    int arrayNumber[3];
+    arrayNumber[0] = 6;
+    arrayNumber[1] = 4;
+    arrayNumber[2] = 7;
+
+    int *myPointer;
+    //myPointer = &arrayNumber[0];
+    myPointer = arrayNumber;
+    printf("arrayNumber[0]: %d\n", arrayNumber[0]);
+    printf("Giá trị contrỏ trỏ tới: %d\n", *myPointer);
+    myPointer++;
+    printf("Giá trị contrỏ trỏ tới: %d\n", *myPointer);
+    myPointer--;
+    printf("Giá trị contrỏ trỏ tới: %d\n", *myPointer);
+    // arrayNumber[2] = 70;
+    myPointer++;
+    myPointer++;
+    *myPointer = 70;
+    printf("arrayNumber[2]: %d\n", arrayNumber[2]);
+
+
+    // Nhập giá trị cho mảng.
+    myPointer = arrayNumber;
+    for (int j = 0; j < 3; ++j) {
+        printf("Vui lòng nhập giá trị cho phần tử thứ %d", j + 1);
+        //scanf("%d", &arrayNumber[j]); // làm việc thông qua index.
+        scanf("%d", myPointer);
+        myPointer++;
+    }
+
+    myPointer = arrayNumber;
+    for (int i = 0; i < 3; ++i) {
+        printf("Giá trị của mảng tại phần tử thứ %d là %d\n", i + 1, arrayNumber[i]);// làm việc mảng thông qua inde
+        printf("Giá trị con trỏ là: %d\n", *myPointer); // làm việc thông qua con trỏ.
+        myPointer++;
+    }
     return 0;
 }
